@@ -23,20 +23,16 @@ client.on(Events.MessageCreate, async (message) => {
   }
 });
 
-// Graceful shutdown
-process.on('SIGINT', async () => {
+// Graceful shutdown handler
+async function shutdown() {
   console.log('\n👋 Shutting down gracefully...');
   await prisma.$disconnect();
   client.destroy();
   process.exit(0);
-});
+}
 
-process.on('SIGTERM', async () => {
-  console.log('\n👋 Shutting down gracefully...');
-  await prisma.$disconnect();
-  client.destroy();
-  process.exit(0);
-});
+process.on('SIGINT', shutdown);
+process.on('SIGTERM', shutdown);
 
 const token = process.env.DISCORD_TOKEN;
 
