@@ -137,3 +137,13 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# Prisma
+*.db
+*.db-journal
+prisma/migrations/
+
+# Bun
+bun.lockb
+.direnv/
+
