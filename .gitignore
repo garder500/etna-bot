@@ -146,4 +146,4 @@ prisma/migrations/
 # Bun
 bun.lockb
 .direnv/
-
+.devenv*
