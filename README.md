@@ -70,7 +70,34 @@ bun run start
 
 ## Development with devenv
 
-If you're using [devenv](https://devenv.sh/), the environment will be automatically configured when you enter the directory (if you have direnv installed).
+This project includes [devenv.sh](https://devenv.sh/) configuration for an easy development environment setup with all dependencies.
+
+### Using devenv
+
+1. Install devenv (if not already installed):
+```bash
+# On macOS/Linux
+curl -fsSL https://get.devenv.sh | sh
+```
+
+2. Enter the development environment:
+```bash
+devenv shell
+```
+
+3. Run the setup script (first time only):
+```bash
+setup
+```
+
+4. Start the bot in development mode:
+```bash
+devenv up
+```
+
+### Using direnv (optional)
+
+If you're using [direnv](https://direnv.net/), the environment will be automatically configured when you enter the directory.
 
 To set up direnv:
 
