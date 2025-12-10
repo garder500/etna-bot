@@ -20,12 +20,12 @@ export default abstract class baseCommands {
             client.application?.commands
                 .create(data)
                 .then((cmd) => {
-                    console.log(`[command] ${data.name} created`);
+                    this.client?.logger?.info(`[command] ${data.name} created`);
                     this.command = cmd;
                 })
                 .catch((err) => {
-                    console.log(`[command] ${data.name} not created`);
-                    console.log(err);
+                    this.client?.logger?.error(`[command] ${data.name} not created`);
+                    this.client?.logger?.error(err);
                 });
         }
 

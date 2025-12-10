@@ -10,7 +10,7 @@ const adapter = new PrismaLibSql({
 
 function init(): void {
   const bot = new Bot();
-  const logger = pino({ level: "info" });
+  const logger = pino({ level: "info", formatters: { level: (label) => { return { level: label }; } }, timestamp: () => `,"time":"${new Date().toISOString()}"` });
   bot.logger = logger;
   const prisma = new PrismaClient({adapter});
 
