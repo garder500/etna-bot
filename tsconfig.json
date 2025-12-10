@@ -29,6 +29,9 @@
     "paths": {
       "@/*": [
         "src/*"
+      ],
+      "@db/*": [
+        "prisma/generated/prisma/*"
       ]
     },
     // Types

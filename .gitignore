@@ -142,6 +142,7 @@ vite.config.ts.timestamp-*
 *.db
 *.db-journal
 prisma/migrations/
+prisma/generated/
 
 # Bun
 bun.lockb

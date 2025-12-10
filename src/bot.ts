@@ -3,10 +3,11 @@ import {
     Client,
     Events,
     GatewayIntentBits,
+    OAuth2Scopes,
     Partials,
 } from "discord.js";
 import CommandsBase from "@/commands/base.command";
-import type { PrismaClient } from "@prisma/client";
+import type { PrismaClient } from "@db/client";
 import crypto from "crypto";
 import * as commandList from "@/commands/command.list";
 import pino from "pino";
@@ -57,6 +58,10 @@ export default class Bot extends Client {
         this.login(process.env.DISCORD_TOKEN);
         this.on(Events.ClientReady, () => {
             this.logger?.info("Bot is ready!");
+            this.logger?.info(`Invitation URL: ${this.generateInvite({
+                scopes: [OAuth2Scopes.Bot, OAuth2Scopes.ApplicationsCommands],
+                permissions: "8",
+            })}`);
             this.loadCommands();
             setTimeout(() => {
                 this.application?.commands.fetch().then((commands) => {

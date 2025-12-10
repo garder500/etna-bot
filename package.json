@@ -11,8 +11,10 @@
     "db:studio": "prisma studio"
   },
   "dependencies": {
+    "@prisma/adapter-libsql": "^7.1.0",
     "@prisma/client": "^7.1.0",
     "discord.js": "^15.0.0-dev",
+    "dotenv": "^17.2.3",
     "pino": "^10.1.0"
   },
   "devDependencies": {
