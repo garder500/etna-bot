@@ -11,7 +11,7 @@ datasource db {
 }
 
 model User {
-  id            String   @id  // Discord ID (snowflake)
+  id            String   @id // Discord ID (snowflake)
   login         String? // Etna Login
   password      String? // Etna Password
   sessionCookie String? // Cookie de session ETNA
