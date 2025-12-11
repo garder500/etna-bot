@@ -32,7 +32,7 @@ fi
 
 # Check TypeScript
 echo "🔍 Checking TypeScript code..."
-if npx tsc --noEmit; then
+if bunx tsc --noEmit; then
     echo "✅ TypeScript code is valid"
 else
     echo "❌ TypeScript errors found"
@@ -41,7 +41,7 @@ fi
 
 # Check Prisma schema
 echo "🔍 Validating Prisma schema..."
-if DATABASE_URL="file:./dev.db" npx prisma validate; then
+if DATABASE_URL="file:./dev.db" bunx prisma validate; then
     echo "✅ Prisma schema is valid"
 else
     echo "❌ Prisma schema validation failed"
@@ -49,7 +49,7 @@ else
 fi
 
 # Check if database exists
-if [ -f "prisma/dev.db" ]; then
+if [ -f "./dev.db" ]; then
     echo "✅ Database file exists"
 else
     echo "⚠️  Database not initialized. Run: bun run db:migrate"
