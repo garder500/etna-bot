@@ -90,7 +90,10 @@ export class LoginCommand extends CommandsBase {
                 });
 
             } catch (error) {
-                console.error("Erreur login/DB:", error);
+                this.client.logger.error({
+                    error,
+                    message: "Error during login or database operation",
+                });
                 // Si loginEtna ou la DB échoue
                 await submittedInteraction.editReply({
                     content: "❌ Identifiants invalides ou erreur de base de données."

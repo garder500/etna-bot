@@ -1,8 +1,6 @@
 { pkgs, lib, config, inputs, ... }:
 
 {
-  # https://devenv.sh/basics/
-  env.GREETING = "Discord Bot Development Environment";
 
   # https://devenv.sh/packages/
   packages = [ 
@@ -46,10 +44,4 @@
   scripts.verify.exec = ''
     ./verify-setup.sh
   '';
-
-  # https://devenv.sh/pre-commit-hooks/
-  # pre-commit.hooks.shellcheck.enable = true;
-
-  # See full reference at https://devenv.sh/reference/options/
-  dotenv.enable = true;
 }

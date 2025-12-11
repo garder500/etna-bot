@@ -18,10 +18,10 @@ export default class Bot extends Client {
         Map<string, boolean>
     >();
     commands: Map<string, CommandsBase> = new Map<string, CommandsBase>();
-    database: PrismaClient | undefined;
+    database: PrismaClient;
     security_key: Buffer;
-    logger: pino.Logger | undefined;
-    constructor() {
+    logger: pino.Logger;
+    constructor(database: PrismaClient, logger: pino.Logger) {
         const isDev = process.env.NODE_ENV === "development";
         super({
             intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages],
@@ -47,6 +47,9 @@ export default class Bot extends Client {
                 ],
             },
         });
+
+        this.database = database;
+        this.logger= logger;
         let key = process.env.SECURITY_KEY || "R5U8X/A?D(G+KbPeShVmYq3t6w9z$C&F";
         this.security_key = Buffer.from(key, "utf-8");
     }
